@@ -1,23 +1,48 @@
-window.onload = function(){
-    let form = document.querySelectorAll("#form-group");
-    for(let i=0; i<form.length; i++){
 
-        const submitMsg= document.getElementsByTagName('message');
-        const submit = document.querySelector('.btn')
-        submit.onclick= () =>{
-            const email = document.getElementById('input email');
-            const emailName = document.getElementById('placeholder');
-            const emailMsg = document.getElementById("message");
-            if(email(email)){
-                emailMsg.innerHTML = "Thank you! Your email address" +emailName+ "has been added to our mailing list"
-            }else{
-                emailMsg.innerHTML= "Please enter a valid email address"
-
-            }
-            
-            console.log('button clicked')
+function myFunction(){
+    let button = document.querySelector(".btn");
+    button.addEventListener('submit', (event) => {
+        event.preventDefault();
+        console.log('button clicked!');
+        const email = document.getElementById("email").value.indexOf("@");
+        submitOK = "true";
+        const emailMsg = document.querySelector(".message")
+        if (email == -1) {
+            emailMsg.innerHTML = "Please enter a valid email address"
+            console.log("Not a valid e-mail!");
+            submitOK = "false";
         }
+        else{
+            emailMsg.innerHTML = "Thank you your email address :"+email+ "has been added to out mailing list!"
+            return false;
 
-    }
-    
+        }
+        
+    })
+
 }
+
+
+
+
+
+
+
+
+
+
+    
+//         const emailName = document.getElementById("email").placeholder;
+//             document.getElementById("message").innerHTML= emailName
+//             if(emailName != null ){
+//                 console.log(emailName)
+//                 emailName.innerHTML = "Thank you! Your email address" +emailName+ "has been added to our mailing list"
+//              }else{
+//                 emailName.innerHTML= "Please enter a valid email address"
+
+//             }         
+//             console.log('button clicked')
+
+
+
+
