@@ -1,29 +1,30 @@
 
-function click(){
-    const button = document.querySelector('.btn')
-     button.addEventListener('click', handleClick)
+window.onload = function (){
 
-    function handleClick(event){
-        event.preventDefault();
-        const email = document.getElementById("email").value; 
-        const emailMsg = document.querySelector('.message');
-        if (email == -1) {
-            emailMsg.innerHTML = "Please enter a valid email address"
-            console.log("Not a valid e-mail!");
-                 }
-        else{
-            emailMsg.innerHTML = "Thank you your email address :" +email+ "  has been added to out mailing list!"
-            console.log("valid");
-            console.log(email);
-            
+    let button = document.querySelector('button');
+    let email = document.querySelector('input');
+    let emailMsg = document.querySelector('.message');
+button.onclick= () =>{
+    
+    if (email.value == "") {
+        emailMsg.innerHTML = "Please enter a valid email address"
+        return false
              }
-            
+    else{
+        emailMsg.innerHTML = "Thank you your email address " +email.value+ "  has been added to out mailing list!"
+        return false
+
+         }
         
-        }
+    
+    }
+
+}
+       
        
             
     
-    }
+
 
     
 
